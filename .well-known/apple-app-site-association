@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "2FJU5Q8XK6.com.johnanderson.widgetlist"
+        ],
+        "components": [
+          {
+            "/": "/open*",
+            "comment": "Shared WidgetList pages: /open?page=…"
+          }
+        ]
+      }
+    ]
+  }
+}

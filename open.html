@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-itunes-app" content="app-id=6828911403">
+<title>WidgetList</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+         background: #000; color: #fff; font: 17px -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; }
+  main { max-width: 420px; padding: 32px 24px; text-align: center; }
+  h1 { font-size: 28px; margin: 0 0 8px; }
+  p { color: #98989d; line-height: 1.4; }
+  .page { font-family: ui-monospace, Menlo, monospace; font-size: 13px; color: #8e8e93; word-break: break-all; }
+  a.button { display: block; margin: 12px 0; padding: 14px 20px; border-radius: 14px;
+             background: #0a84ff; color: #fff; text-decoration: none; font-weight: 600; }
+  a.secondary { background: #1c1c1e; }
+</style>
+</head>
+<body>
+<main>
+  <h1>WidgetList</h1>
+  <p>Someone shared a WidgetList page with you. Open it in the app on your iPhone, iPad, or Mac.</p>
+  <p class="page" id="page"></p>
+  <a class="button" id="open" href="widgetlist://open">Open in WidgetList</a>
+  <a class="button secondary" href="https://apps.apple.com/app/id6828911403">Get WidgetList on the App Store</a>
+</main>
+<script>
+  // Carries the shared page over to the app's own link, for when the
+  // universal link didn't open the app directly (for example, the link was
+  // typed or pasted into Safari).
+  const page = new URLSearchParams(location.search).get("page");
+  if (page) {
+    document.getElementById("page").textContent = page;
+    document.getElementById("open").href = "widgetlist://open?page=" + encodeURIComponent(page);
+  }
+</script>
+</body>
+</html>
