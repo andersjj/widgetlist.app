@@ -2,16 +2,14 @@
   "applinks": {
     "details": [
       {
-        "appIDs": [
-          "2FJU5Q8XK6.com.johnanderson.widgetlist"
-        ],
+        "appIDs": ["2FJU5Q8XK6.com.johnanderson.widgetlist"],
         "components": [
-          {
-            "/": "/open*",
-            "comment": "Shared WidgetList pages: /open?page=…"
-          }
+          { "/": "/open*", "comment": "Shared WidgetList pages: /open?page=…" }
         ]
       }
     ]
+  },
+  "appclips": {
+    "apps": ["2FJU5Q8XK6.com.johnanderson.widgetlist.Clip"]
   }
 }
