@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WidgetList — Coming Soon</title>
+<meta name="description" content="WidgetList — little bits of info, right on your wrist. Coming soon.">
+<meta name="theme-color" content="#0b3d6e">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b3d6e'/%3E%3Crect x='18' y='12' width='28' height='40' rx='9' fill='none' stroke='%23cfe6ff' stroke-width='3'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bp: #0b3d6e;
+    --bp-deep: #072a4d;
+    --line: rgba(207, 230, 255, 0.9);
+    --ink: #e6f2ff;
+    --ink-dim: rgba(230, 242, 255, 0.55);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.25rem;
+    padding: 3rem 1.5rem 4.5rem;
+    color: var(--ink);
+    font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+    background-color: var(--bp);
+    background-image:
+      radial-gradient(ellipse at center, transparent 40%, var(--bp-deep) 100%),
+      linear-gradient(rgba(207,230,255,.16) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(207,230,255,.16) 1px, transparent 1px),
+      linear-gradient(rgba(207,230,255,.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(207,230,255,.07) 1px, transparent 1px);
+    background-size: 100% 100%, 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position: center, -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+    overflow-x: hidden;
+  }
+  .watch {
+    width: min(360px, 78vw);
+    height: auto;
+    opacity: .5;
+    filter: drop-shadow(0 0 18px rgba(160, 205, 255, .18));
+  }
+  .watch .glow { animation: breathe 5s ease-in-out infinite; }
+  @keyframes breathe { 0%,100% { opacity: .05; } 50% { opacity: .16; } }
+  @media (prefers-reduced-motion: reduce) { .watch .glow { animation: none; opacity: .1; } }
+
+  .copy { text-align: center; }
+  h1 {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 6vw, 3rem);
+    letter-spacing: -0.02em;
+  }
+  .soon {
+    margin-top: .75rem;
+    font-size: .85rem;
+    letter-spacing: .4em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  footer {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    font-size: .7rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    border-top: 1px solid rgba(207,230,255,.18);
+    background: rgba(7, 42, 77, .55);
+  }
+  @media (max-width: 480px) { footer .hide-sm { display: none; } footer { justify-content: center; } }
+</style>
+</head>
+<body>
+
+  <svg class="watch" viewBox="0 0 340 420" fill="none" stroke="var(--line)" stroke-width="1.5" role="img" aria-label="Outline of a blank Apple Watch">
+    <!-- band stubs -->
+    <path d="M100 68 L110 16 H250 L260 68" />
+    <path d="M100 352 L110 404 H250 L260 352" />
+    <line x1="114" y1="38" x2="246" y2="38" stroke-width="1" opacity=".5"/>
+    <line x1="114" y1="382" x2="246" y2="382" stroke-width="1" opacity=".5"/>
+    <!-- case (approx. 39 x 46 mm proportions) -->
+    <rect x="62" y="68" width="236" height="284" rx="58" stroke-width="2"/>
+    <!-- screen -->
+    <rect x="76" y="82" width="208" height="256" rx="45"/>
+    <rect class="glow" x="76" y="82" width="208" height="256" rx="45" fill="#cfe6ff" stroke="none"/>
+    <!-- digital crown + side button -->
+    <rect x="298" y="132" width="13" height="46" rx="5"/>
+    <line x1="302" y1="138" x2="302" y2="172" stroke-width="1" opacity=".6"/>
+    <line x1="306" y1="138" x2="306" y2="172" stroke-width="1" opacity=".6"/>
+    <rect x="298" y="206" width="6" height="58" rx="3"/>
+    <!-- centerlines -->
+    <g stroke-width="1" stroke-dasharray="8 4 2 4" opacity=".45">
+      <line x1="180" y1="58" x2="180" y2="362"/>
+      <line x1="52" y1="210" x2="322" y2="210"/>
+    </g>
+    <!-- dimension line: width -->
+    <g stroke-width="1" opacity=".7">
+      <line x1="62" y1="354" x2="62" y2="374"/>
+      <line x1="298" y1="354" x2="298" y2="374"/>
+      <line x1="62" y1="368" x2="298" y2="368"/>
+      <path d="M62 368 l7 -3 v6 z M298 368 l-7 -3 v6 z" fill="var(--line)" stroke="none"/>
+    </g>
+    <!-- dimension line: height -->
+    <g stroke-width="1" opacity=".7">
+      <line x1="58" y1="68" x2="26" y2="68"/>
+      <line x1="58" y1="352" x2="26" y2="352"/>
+      <line x1="32" y1="68" x2="32" y2="352"/>
+      <path d="M32 68 l-3 7 h6 z M32 352 l-3 -7 h6 z" fill="var(--line)" stroke="none"/>
+    </g>
+    <g fill="var(--line)" stroke="none" font-family="ui-monospace, Menlo, monospace" font-size="10" letter-spacing="1">
+      <rect x="157" y="361" width="46" height="14" fill="var(--bp)"/>
+      <text x="180" y="372" text-anchor="middle">39 MM</text>
+      <rect x="25" y="186" width="14" height="48" fill="var(--bp)"/>
+      <text x="32" y="214" text-anchor="middle" transform="rotate(-90 32 210)">46 MM</text>
+    </g>
+  </svg>
+
+  <div class="copy">
+    <h1>WidgetList</h1>
+    <p class="soon">Coming soon</p>
+  </div>
+
+  <footer>
+    <span>WidgetList.app</span>
+    <span class="hide-sm">Drawing No. WL-001 · Rev 0.1</span>
+    <span class="hide-sm">© 2026</span>
+  </footer>
+
+</body>
+</html>
