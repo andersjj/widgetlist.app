@@ -126,7 +126,7 @@
 <body>
 
 <header class="hero">
-  <svg class="watch" viewBox="20 0 320 420" fill="none" stroke="var(--line)" stroke-width="1.5" role="img" aria-label="Outline of a blank Apple Watch">
+<svg class="watch" viewBox="20 0 320 420" fill="none" stroke="var(--line)" stroke-width="1.5" role="img" aria-label="Outline of an Apple Watch showing an abstract WidgetList home screen">
     <!-- band stubs -->
     <path d="M100 68 L110 16 H250 L260 68" />
     <path d="M100 352 L110 404 H250 L260 352" />
@@ -147,6 +147,27 @@
       <line x1="180" y1="58" x2="180" y2="362"/>
       <line x1="52" y1="210" x2="322" y2="210"/>
     </g>
+
+    <!-- abstract screen UI -->
+    <g class="ui" stroke-width="1.25" opacity=".7">
+      <!-- status ring + time -->
+      <circle cx="152" cy="103" r="5"/>
+      <rect x="162" y="98" width="40" height="10" rx="3"/>
+      <!-- settings button -->
+      <circle cx="252" cy="116" r="14"/>
+      <circle cx="252" cy="116" r="5"/>
+      <!-- page title ("Home") -->
+      <rect x="164" y="117" width="32" height="7" rx="3" opacity=".7"/>
+      <!-- app name block (stands in for "WidgetList") -->
+      <rect x="98" y="165" width="164" height="26" rx="4"/>
+      <!-- primary pill ("Browse") -->
+      <rect x="100" y="222" width="160" height="36" rx="18"/>
+      <rect x="164" y="237" width="32" height="6" rx="3" opacity=".6"/>
+      <!-- secondary pill -->
+      <rect x="100" y="272" width="160" height="36" rx="18" stroke-dasharray="4 3"/>
+      <rect x="164" y="287" width="32" height="6" rx="3" opacity=".6"/>
+    </g>
+
     <!-- dimension line: width -->
     <g stroke-width="1" opacity=".7">
       <line x1="62" y1="354" x2="62" y2="374"/>
@@ -172,7 +193,7 @@
   <div>
     <h1>WidgetList</h1>
     <p class="soon">Information you need</p>
-    <p class="soon">on all your devices</p>
+    <p class="soon">across all your devices</p>
     <p class="soon2">Coming soon</p>
   </div>
 </header>
