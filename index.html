@@ -123,6 +123,26 @@
     footer .hide-sm { display: none; }
     footer { justify-content: center; }
     }
+
+  /* ---------- progressive hiding ----------
+     1. short screens drop the device lineup
+     2. shorter still drops the tagline
+     3. shortest (or phone width) drops "Coming soon" too,
+        leaving just the watch + title                      */
+
+  @media (max-height: 760px), (max-width: 560px) {
+    .lineup-wrap { display: none; }
+    /* hero takes over the free space so the footer stays at the bottom */
+    .hero { flex: 1; justify-content: center; padding-bottom: 1.5rem; }
+  }
+  @media (max-height: 620px), (max-width: 560px) {
+    .tagline { display: none; }
+    .soon2 { margin-top: .75rem; }
+  }
+  @media (max-height: 500px), (max-width: 560px) {
+    .soon2 { display: none; }
+    .watch { height: min(56vh, 400px); }
+  }
 </style>
 </head>
 <body>
@@ -196,8 +216,10 @@
 
   <div>
     <h1>WidgetList</h1>
-    <p class="soon">Information you need</p>
-    <p class="soon">across all your devices</p>
+    <div class="tagline">
+      <p class="soon">Information you need</p>
+      <p class="soon">across all your devices</p>
+    </div>
     <p class="soon2">Coming soon</p>
   </div>
 </header>
